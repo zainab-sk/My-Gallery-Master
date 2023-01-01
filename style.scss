@@ -1,0 +1,169 @@
+@mixin background-style{
+width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100px;
+}
+@mixin image-url($url){
+    background-image: url($url);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    padding:2rem;
+}
+.social{
+    margin:2rem auto;
+    width: 100%;
+    max-width: 800px;
+   & *{
+    margin: 0 auto;
+   }
+    .profile-img{
+        background: url("./profilePhoto.png");
+        background-repeat: no-repeat;
+        width: 28%;
+        aspect-ratio: 7/7;
+        object-fit: cover;
+        background-size: cover;
+        border-radius: 15px;
+    }
+    &>h2{
+margin: 0.8rem 0;
+    }
+    &>p{
+        font-size: 1rem;
+        color: #A9A9A9;;
+    }
+           &>h2 , &>p{
+            text-align: center;
+           }
+}
+.social-media{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    div{
+        flex-grow: 1;
+        background-color: #E5E5E5;
+        // width: 30%;
+        flex-basis: 27.40%;
+        margin: 0.8rem 0.5rem;
+        padding: 0.8rem 0.7rem;
+        min-width: 90px;
+        text-align: center;
+        border-radius: 15px;
+        &>h2 {
+                font-size: 0.9rem;
+            }
+        &>p {
+                             font-size: 0.9rem;
+                         }
+    }
+
+}
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    column-gap:10px;
+    row-gap: 10px;
+        max-width: 800px;
+       margin: 2rem auto;
+.img{
+    @include background-style;
+}
+.img1{
+   @include image-url("./photo1.png");
+   grid-column: 1/1;
+}
+.img2 {
+    @include image-url("./photo2.png");
+    grid-column: 2/4;
+}
+.img3{
+    @include image-url("./photo3.png");
+    grid-column: 1/3;
+}
+.img4 {
+    @include image-url("./photo4.png");
+    grid-column:3/4;
+    grid-row:2/4;
+}
+.img5 {
+    @include image-url("./photo5.png")
+}
+.img6 {
+    @include image-url("./photo6.png")
+}
+}
+@media (min-width:481px){
+    body{
+        padding: 3rem;
+    }
+         .social {
+             &>h2 {
+                 font-size: 1.3rem;
+             }
+    
+             &>p {
+                 font-size: 1rem;
+             }
+         }
+    
+         .social-media {
+             div {
+    
+                 &>h2 {
+                     font-size: 1.1rem;
+                 }
+    
+                 &>p {
+                     font-size: 1rem;
+                 }
+             }
+         }
+    .gallery{
+
+        .img{
+            @include background-style;
+            min-height: 140px;
+        }
+    }
+}
+@media (min-width:768px) {
+    .social{
+        &>h2{
+font-size: 1.8rem;
+        }
+        &>p{
+            font-size: 1.3rem;
+        }
+    }
+    .social-media{
+        div{
+
+            &>h2{
+    font-size: 1.5rem;
+            }
+            &>p{
+                font-size: 1.2rem;
+            }
+        }
+    }
+    
+    .gallery {
+gap:20px;
+
+        .img {
+            @include background-style;
+            min-height: 210px;
+        }
+    }
+}
